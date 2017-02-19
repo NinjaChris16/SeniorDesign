@@ -4,9 +4,9 @@ LDLIBS = -lm
 
 MODS = calc_roots num_roots input validation output format cunit sqrt
 
-quad-solver: quad-solver.c calc_roots/calc_roots.o format/format.o \
-	num_roots/num_roots.o input/input.o validation/input_val.o \
-	output/output.o sqrt/sqrt.o
+quad-solver: quad-solver.c ../src/calc_roots/calc_roots.o ../src/format/format.o \
+	../src/num_roots/num_roots.o ../src/input/input.o ../src/validation/input_val.o \
+	../src/output/output.o ../src/sqrt/sqrt.o
 
 .PHONY: test
 test:

@@ -1,6 +1,6 @@
 .PHONY: deploy
 deploy:
-	cd Build; make; cp quad-solver ../quad-solver
+	cd ../Build; make; cp quad-solver ../Deployment/quad-solver
 
 .PHONY: clean
 clean:

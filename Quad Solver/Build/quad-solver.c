@@ -4,13 +4,13 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include "quad_constants.h"
-#include "input/input.h"
-#include "validation/input_val.h"
-#include "num_roots/num_roots.h"
-#include "calc_roots/calc_roots.h"
-#include "output/output.h"
-#include "format/format.h"
+#include "../src/quad_constants.h"
+#include "../src/input/input.h"
+#include "../src/validation/input_val.h"
+#include "../src/num_roots/num_roots.h"
+#include "../src/calc_roots/calc_roots.h"
+#include "../src/output/output.h"
+#include "../src/format/format.h"
 
 
 int main()
