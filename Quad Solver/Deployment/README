@@ -1,1 +1,8 @@
 Packages the program.
+=====================
+
+To deploy:
+run - make deploy
+
+To test:
+run - make test
