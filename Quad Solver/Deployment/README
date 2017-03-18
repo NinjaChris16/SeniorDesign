@@ -2,7 +2,13 @@ Packages the program.
 =====================
 
 To deploy:
-run - make deploy
+make deploy
 
-To test:
-run - make test
+To run all tests:
+make test
+
+To run only unit tests:
+make unit-test
+
+To run only integration tests:
+make integration-test
