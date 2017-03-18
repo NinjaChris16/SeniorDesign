@@ -1,3 +1,6 @@
+Directory that allows for building and testing of entire system
+===============================================================
+
 src
 ===
 
