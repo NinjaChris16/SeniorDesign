@@ -7,9 +7,6 @@ make
 - To test system:
 make test
 
-- To clean system:
-make
-
 - To format the system:
 make format
 
