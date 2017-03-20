@@ -1,0 +1,5 @@
+All compilations should work with the following commands:
+-std=c99 
+-Wall 
+-Werror 
+-pedantic
