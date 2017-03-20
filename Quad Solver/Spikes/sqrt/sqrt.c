@@ -2,8 +2,6 @@
 //  sqrt.c
 //  sqrt
 //
-//  Created by Alex Hill on 2/5/16.
-//  Copyright © 2016 Alex Hill. All rights reserved.
 //
 
 #include <stdio.h>
