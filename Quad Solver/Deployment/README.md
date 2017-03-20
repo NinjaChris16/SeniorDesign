@@ -4,6 +4,8 @@ Packages the program.
 - To deploy program:
 make
 
+- To install program:
+-untar 
 
 - To run all tests:
 make test
