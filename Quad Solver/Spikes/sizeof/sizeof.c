@@ -2,8 +2,6 @@
 //  sizeof.c
 //  sizeof
 //
-//  Created by Alex Hill on 1/29/16.
-//  Copyright © 2016 Alex Hill. All rights reserved.
 //
 
 #include <stdio.h>
