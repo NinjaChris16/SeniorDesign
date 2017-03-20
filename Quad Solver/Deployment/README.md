@@ -2,7 +2,7 @@ Packages the program.
 =====================
 
 - To deploy program:
-make deploy
+make
 
 
 - To run all tests:
