@@ -1,19 +1,6 @@
 Packages the program.
 =====================
-
-- To deploy program:
-make
-
-- To install program:
--untar 
-
-- To run all tests:
-make test
-
-
-- To run only unit tests:
-make unit-test
-
-
-- To run only integration tests:
-make integration-test
+To deploy the program,
+untar QS.tar,
+cd Src
+run make
