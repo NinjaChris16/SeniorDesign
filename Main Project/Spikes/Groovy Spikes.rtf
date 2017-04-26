@@ -1,0 +1,385 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red0\green0\blue255;}
+{\*\generator Riched20 10.0.14393}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang9 // Hello World\par
+println "Hello world!"\par
+\par
+/*\par
+  Variables:\par
+\par
+  You can assign values to variables for later use\par
+*/\par
+\par
+def x = 1\par
+println x\par
+\par
+x = new java.util.Date()\par
+println x\par
+\par
+x = -3.1499392\par
+println x\par
+\par
+x = false\par
+println x\par
+\par
+x = "Groovy!"\par
+println x\par
+\par
+/*\par
+  Collections and maps\par
+*/\par
+\par
+//Creating an empty list\par
+def technologies = []\par
+\par
+/*** Adding a elements to the list ***/\par
+\par
+// As with Java\par
+technologies.add("Grails")\par
+\par
+// Left shift adds, and returns the list\par
+technologies << "Groovy"\par
+\par
+// Add multiple elements\par
+technologies.addAll(["Gradle","Griffon"])\par
+\par
+/*** Removing elements from the list ***/\par
+\par
+// As with Java\par
+technologies.remove("Griffon")\par
+\par
+// Subtraction works also\par
+technologies = technologies - 'Grails'\par
+\par
+/*** Iterating Lists ***/\par
+\par
+// Iterate over elements of a list\par
+technologies.each \{ println "Technology: $it"\}\par
+technologies.eachWithIndex \{ it, i -> println "$i: $it"\}\par
+\par
+/*** Checking List contents ***/\par
+\par
+//Evaluate if a list contains element(s) (boolean)\par
+contained = technologies.contains( 'Groovy' )\par
+\par
+// Or\par
+contained = 'Groovy' in technologies\par
+\par
+// Check for multiple contents\par
+technologies.containsAll(['Groovy','Grails'])\par
+\par
+/*** Sorting Lists ***/\par
+\par
+// Sort a list (mutates original list)\par
+technologies.sort()\par
+\par
+// To sort without mutating original, you can do:\par
+sortedTechnologies = technologies.sort( false )\par
+\par
+/*** Manipulating Lists ***/\par
+\par
+//Replace all elements in the list\par
+Collections.replaceAll(technologies, 'Gradle', 'gradle')\par
+\par
+//Shuffle a list\par
+Collections.shuffle(technologies, new Random())\par
+\par
+//Clear a list\par
+technologies.clear()\par
+\par
+//Creating an empty map\par
+def devMap = [:]\par
+\par
+//Add values\par
+devMap = ['name':'Roberto', 'framework':'Grails', 'language':'Groovy']\par
+devMap.put('lastName','Perez')\par
+\par
+//Iterate over elements of a map\par
+devMap.each \{ println "$it.key: $it.value" \}\par
+devMap.eachWithIndex \{ it, i -> println "$i: $it"\}\par
+\par
+//Evaluate if a map contains a key\par
+assert devMap.containsKey('name')\par
+\par
+//Evaluate if a map contains a value\par
+assert devMap.containsValue('Roberto')\par
+\par
+//Get the keys of a map\par
+println devMap.keySet()\par
+\par
+//Get the values of a map\par
+println devMap.values()\par
+\par
+/*\par
+  Groovy Beans\par
+\par
+  GroovyBeans are JavaBeans but using a much simpler syntax\par
+\par
+  When Groovy is compiled to bytecode, the following rules are used.\par
+\par
+    * If the name is declared with an access modifier (public, private or\par
+      protected) then a field is generated.\par
+\par
+    * A name declared with no access modifier generates a private field with\par
+      public getter and setter (i.e. a property).\par
+\par
+    * If a property is declared final the private field is created final and no\par
+      setter is generated.\par
+\par
+    * You can declare a property and also declare your own getter or setter.\par
+\par
+    * You can declare a property and a field of the same name, the property will\par
+      use that field then.\par
+\par
+    * If you want a private or protected property you have to provide your own\par
+      getter and setter which must be declared private or protected.\par
+\par
+    * If you access a property from within the class the property is defined in\par
+      at compile time with implicit or explicit this (for example this.foo, or\par
+      simply foo), Groovy will access the field directly instead of going though\par
+      the getter and setter.\par
+\par
+    * If you access a property that does not exist using the explicit or\par
+      implicit foo, then Groovy will access the property through the meta class,\par
+      which may fail at runtime.\par
+\par
+*/\par
+\par
+class Foo \{\par
+    // read only property\par
+    final String name = "Roberto"\par
+\par
+    // read only property with public getter and protected setter\par
+    String language\par
+    protected void setLanguage(String language) \{ this.language = language \}\par
+\par
+    // dynamically typed property\par
+    def lastName\par
+\}\par
+\par
+/*\par
+  Logical Branching and Looping\par
+*/\par
+\par
+//Groovy supports the usual if - else syntax\par
+def x = 3\par
+\par
+if(x==1) \{\par
+    println "One"\par
+\} else if(x==2) \{\par
+    println "Two"\par
+\} else \{\par
+    println "X greater than Two"\par
+\}\par
+\par
+//Groovy also supports the ternary operator:\par
+def y = 10\par
+def x = (y > 1) ? "worked" : "failed"\par
+assert x == "worked"\par
+\par
+//Groovy supports 'The Elvis Operator' too!\par
+//Instead of using the ternary operator:\par
+\par
+displayName = user.name ? user.name : 'Anonymous'\par
+\par
+//We can write it:\par
+displayName = user.name ?: 'Anonymous'\par
+\par
+//For loop\par
+//Iterate over a range\par
+def x = 0\par
+for (i in 0 .. 30) \{\par
+    x += i\par
+\}\par
+\par
+//Iterate over a list\par
+x = 0\par
+for( i in [5,3,2,1] ) \{\par
+    x += i\par
+\}\par
+\par
+//Iterate over an array\par
+array = (0..20).toArray()\par
+x = 0\par
+for (i in array) \{\par
+    x += i\par
+\}\par
+\par
+//Iterate over a map\par
+def map = ['name':'Roberto', 'framework':'Grails', 'language':'Groovy']\par
+x = 0\par
+for ( e in map ) \{\par
+    x += e.value\par
+\}\par
+\par
+/*\par
+  Operators\par
+\par
+  Operator Overloading for a list of the common operators that Groovy supports:\par
+\par
+  Helpful groovy operators\par
+*/\par
+//Spread operator:  invoke an action on all items of an aggregate object.\par
+def technologies = ['Groovy','Grails','Gradle']\par
+technologies*.toUpperCase() // = to technologies.collect \{ it?.toUpperCase() \}\par
+\par
+//Safe navigation operator: used to avoid a NullPointerException.\par
+def user = User.get(1)\par
+def username = user?.username\par
+\par
+\par
+/*\par
+  Closures\par
+  A Groovy Closure is like a "code block" or a method pointer. It is a piece of\par
+  code that is defined and then executed at a later point.\par
+\par
+*/\par
+//Example:\par
+def clos = \{ println "Hello World!" \}\par
+\par
+println "Executing the Closure:"\par
+clos()\par
+\par
+//Passing parameters to a closure\par
+def sum = \{ a, b -> println a+b \}\par
+sum(2,4)\par
+\par
+//Closures may refer to variables not listed in their parameter list.\par
+def x = 5\par
+def multiplyBy = \{ num -> num * x \}\par
+println multiplyBy(10)\par
+\par
+// If you have a Closure that takes a single argument, you may omit the\par
+// parameter definition of the Closure\par
+def clos = \{ print it \}\par
+clos( "hi" )\par
+\par
+/*\par
+  Groovy can memoize closure results [1][2][3]\par
+*/\par
+def cl = \{a, b ->\par
+    sleep(3000) // simulate some time consuming processing\par
+    a + b\par
+\}\par
+\par
+mem = cl.memoize()\par
+\par
+def callClosure(a, b) \{\par
+    def start = System.currentTimeMillis()\par
+    mem(a, b)\par
+    println "Inputs(a = $a, b = $b) - took $\{System.currentTimeMillis() - start\} msecs."\par
+\}\par
+\par
+callClosure(1, 2)\par
+callClosure(1, 2)\par
+callClosure(2, 3)\par
+callClosure(2, 3)\par
+callClosure(3, 4)\par
+callClosure(3, 4)\par
+callClosure(1, 2)\par
+callClosure(2, 3)\par
+callClosure(3, 4)\par
+\par
+/*\par
+  Expando\par
+\par
+  The Expando class is a dynamic bean so we can add properties and we can add\par
+  closures as methods to an instance of this class\par
+\par
+*/\par
+  def user = new Expando(name:"Roberto")\par
+  assert 'Roberto' == user.name\par
+\par
+  user.lastName = 'P\'e9rez'\par
+  assert 'P\'e9rez' == user.lastName\par
+\par
+  user.showInfo = \{ out ->\par
+      out << "Name: $name"\par
+      out << ", Last name: $lastName"\par
+  \}\par
+\par
+  def sw = new StringWriter()\par
+  println user.showInfo(sw)\par
+\par
+\par
+/*\par
+  Metaprogramming (MOP)\par
+*/\par
+\par
+//Using ExpandoMetaClass to add behaviour\par
+String.metaClass.testAdd = \{\par
+    println "we added this"\par
+\}\par
+\par
+String x = "test"\par
+x?.testAdd()\par
+\par
+//Intercepting method calls\par
+class Test implements GroovyInterceptable \{\par
+    def sum(Integer x, Integer y) \{ x + y \}\par
+\par
+    def invokeMethod(String name, args) \{\par
+        System.out.println "Invoke method $name with args: $args"\par
+    \}\par
+\}\par
+\par
+def test = new Test()\par
+test?.sum(2,3)\par
+test?.multiply(2,3)\par
+\par
+//Groovy supports propertyMissing for dealing with property resolution attempts.\par
+class Foo \{\par
+   def propertyMissing(String name) \{ name \}\par
+\}\par
+def f = new Foo()\par
+\par
+assertEquals "boo", f.boo\par
+\par
+/*\par
+  TypeChecked and CompileStatic\par
+  Groovy, by nature, is and will always be a dynamic language but it supports\par
+  typechecked and compilestatic\par
+\par
+  More info: {{\field{\*\fldinst{HYPERLINK http://www.infoq.com/articles/new-groovy-20 }}{\fldrslt{http://www.infoq.com/articles/new-groovy-20\ul0\cf0}}}}\f0\fs22\par
+*/\par
+//TypeChecked\par
+import groovy.transform.TypeChecked\par
+\par
+void testMethod() \{\}\par
+\par
+@TypeChecked\par
+void test() \{\par
+    testMeethod()\par
+\par
+    def name = "Roberto"\par
+\par
+    println naameee\par
+\par
+\}\par
+\par
+//Another example:\par
+import groovy.transform.TypeChecked\par
+\par
+@TypeChecked\par
+Integer test() \{\par
+    Integer num = "1"\par
+\par
+    Integer[] numbers = [1,2,3,4]\par
+\par
+    Date date = numbers[1]\par
+\par
+    return "Test"\par
+\par
+\}\par
+\par
+//CompileStatic example:\par
+import groovy.transform.CompileStatic\par
+\par
+@CompileStatic\par
+int sum(int x, int y) \{\par
+    x + y\par
+\}\par
+\par
+assert sum(2,5) == 7\par
+}
+ 
