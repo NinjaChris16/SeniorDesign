@@ -15,11 +15,3 @@ Allows one to see how an application functions when network conditions are spott
 ### clumsy Website: https://jagt.github.io/clumsy/
 
 ### clumsy Manual: https://jagt.github.io/clumsy/manual.html
-
-
-== Stress Test Tools
-Look at the following links for some tools to aid in stress testing your SMB implmentations:
-
-
-
-link:index.html[Docs]
